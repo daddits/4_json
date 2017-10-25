@@ -6,8 +6,8 @@ def load_data(file_path):
         pretty_print_json(json.load(f))
 
 
-def pretty_print_json(data):
-    for value in data:
+def pretty_print_json(json_content):
+    for value in json_content:
         for x in range(3):
             print(json.dumps([
                 {
