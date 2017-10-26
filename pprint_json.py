@@ -1,74 +1,73 @@
 import json
 
 
-def load_data(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f:
-        pretty_print_json(json.load(f))
+def load_data(file_path, encoding):
+    with open(file_path, 'r', encoding=encoding) as f:
+        return json.load(f)
 
 
 def pretty_print_json(json_content):
-    for shop in json_content:
-        for x in range(3):
-            print(json.dumps([
+    for shops in json_content:
+        for shop in range(3):
+            return json.dumps([
                 {
                     'Cells': {
-                        'Address': shop[x]['Cells']['Address'],
-                        'AdmArea': shop[x]['Cells']['AdmArea'],
-                        'ClarificationOfWorkingHours': shop[x]['Cells']['ClarificationOfWorkingHours'],
-                        'District': shop[x]['Cells']['District'],
-                        'IsNetObject': shop[x]['Cells']['IsNetObject'],
-                        'Name': shop[x]['Cells']['Name'],
-                        'OperatingCompany': shop[x]['Cells']['OperatingCompany'],
+                        'Address': shops[shop]['Cells']['Address'],
+                        'AdmArea': shops[shop]['Cells']['AdmArea'],
+                        'ClarificationOfWorkingHours': shops[shop]['Cells']['ClarificationOfWorkingHours'],
+                        'District': shops[shop]['Cells']['District'],
+                        'IsNetObject': shops[shop]['Cells']['IsNetObject'],
+                        'Name': shops[shop]['Cells']['Name'],
+                        'OperatingCompany': shops[shop]['Cells']['OperatingCompany'],
                         'PublicPhone': [
                             {
-                                'PublicPhone': shop[x]['Cells']['PublicPhone'][0]['PublicPhone']
+                                'PublicPhone': shops[shop]['Cells']['PublicPhone'][0]['PublicPhone']
                             }
                         ],
-                        'TypeService': shop[x]['Cells']['TypeService'],
+                        'TypeService': shops[shop]['Cells']['TypeService'],
                         'WorkingHours': [{
-                            'DayOfWeek': shop[x]['Cells']['WorkingHours'][0]['DayOfWeek'],
-                            'Hours': shop[x]['Cells']['WorkingHours'][0]['Hours']
+                            'DayOfWeek': shops[shop]['Cells']['WorkingHours'][0]['DayOfWeek'],
+                            'Hours': shops[shop]['Cells']['WorkingHours'][0]['Hours']
                          },
                          {
-                            'DayOfWeek': shop[x]['Cells']['WorkingHours'][1]['DayOfWeek'],
-                            'Hours': shop[x]['Cells']['WorkingHours'][1]['Hours']
+                            'DayOfWeek': shops[shop]['Cells']['WorkingHours'][1]['DayOfWeek'],
+                            'Hours': shops[shop]['Cells']['WorkingHours'][1]['Hours']
                          },
                          {
-                            'DayOfWeek': shop[x]['Cells']['WorkingHours'][2]['DayOfWeek'],
-                            'Hours': shop[x]['Cells']['WorkingHours'][2]['Hours']
+                            'DayOfWeek': shops[shop]['Cells']['WorkingHours'][2]['DayOfWeek'],
+                            'Hours': shops[shop]['Cells']['WorkingHours'][2]['Hours']
                          },
                          {
-                            'DayOfWeek': shop[x]['Cells']['WorkingHours'][3]['DayOfWeek'],
-                            'Hours': shop[x]['Cells']['WorkingHours'][3]['Hours']
+                            'DayOfWeek': shops[shop]['Cells']['WorkingHours'][3]['DayOfWeek'],
+                            'Hours': shops[shop]['Cells']['WorkingHours'][3]['Hours']
                          },
                          {
-                            'DayOfWeek': shop[x]['Cells']['WorkingHours'][4]['DayOfWeek'],
-                            'Hours': shop[x]['Cells']['WorkingHours'][4]['Hours']
+                            'DayOfWeek': shops[shop]['Cells']['WorkingHours'][4]['DayOfWeek'],
+                            'Hours': shops[shop]['Cells']['WorkingHours'][4]['Hours']
                          },
                          {
-                            'DayOfWeek': shop[x]['Cells']['WorkingHours'][5]['DayOfWeek'],
-                            'Hours': shop[x]['Cells']['WorkingHours'][5]['Hours']
+                            'DayOfWeek': shops[shop]['Cells']['WorkingHours'][5]['DayOfWeek'],
+                            'Hours': shops[shop]['Cells']['WorkingHours'][5]['Hours']
                          },
                          {
-                            'DayOfWeek': shop[x]['Cells']['WorkingHours'][6]['DayOfWeek'],
-                            'Hours': shop[x]['Cells']['WorkingHours'][6]['Hours']
+                            'DayOfWeek': shops[shop]['Cells']['WorkingHours'][6]['DayOfWeek'],
+                            'Hours': shops[shop]['Cells']['WorkingHours'][6]['Hours']
                          }
                         ],
                         'geoData': {
                            'coordinates': [
-                               shop[x]['Cells']['geoData']['coordinates'][0],
-                               shop[x]['Cells']['geoData']['coordinates'][1]
+                               shops[shop]['Cells']['geoData']['coordinates'][0],
+                               shops[shop]['Cells']['geoData']['coordinates'][1]
                             ],
-                           'type': shop[x]['Cells']['geoData']['type']
+                           'type': shops[shop]['Cells']['geoData']['type']
                         },
-                        'global_id': shop[x]['Cells']['global_id']
+                        'global_id': shops[shop]['Cells']['global_id']
                     },
-                    'Id': shop[x]['Id'],
-                    'Number': shop[x]['Number']
-                 }], sort_keys=True, indent=4))
+                    'Id': shops[shop]['Id'],
+                    'Number': shops[shop]['Number']
+                 }], sort_keys=True, indent=4)
 
 
 if __name__ == '__main__':
-    pass
-
-load_data('data.json')
+    json_data = load_data('data.json', 'utf-8')
+    print(pretty_print_json(json_data))
