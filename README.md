@@ -8,7 +8,7 @@
 
 import json
 
-load_data('data.json')
+load_data('data.json', encoding)
 
 ```
 
@@ -16,9 +16,9 @@ Example of script launch on Linux, Python 3.5:
 
 ```#!bash
 
-$ python pprint_json.py data.json
+$ python3 pprint_json.py data.json
 
-```
+```git
 
 # Project Goals
 
