@@ -1,8 +1,8 @@
 import json
 
 
-def load_data(file_path, encoding):
-    with open(file_path, 'r', encoding=encoding) as f:
+def load_data(file_path):
+    with open(file_path, 'r') as f:
         return json.load(f)
 
 
@@ -69,5 +69,5 @@ def pretty_print_json(json_content):
 
 
 if __name__ == '__main__':
-    json_data = load_data('data.json', 'utf-8')
+    json_data = load_data('data.json')
     print(pretty_print_json(json_data))
